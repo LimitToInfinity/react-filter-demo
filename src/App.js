@@ -1,40 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
-import FilterForm from './components/FilterForm'
-// import VisibleDogs from './components/VisibleDogs'
+import FilterForm from './components/FilterForm';
 
-
-
-
-class App extends React.Component {
+class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       dogData: [],
-      filteredDogs: []
     }
   }
 
   componentDidMount() {
     fetch("https://api.thedogapi.com/v1/breeds")
       .then(response => response.json())
-      .then(data => this.setState({ dogData: data }))
+      .then(dogData => this.setState({ dogData, }));
   }
 
-  //create a filterDogs function
-
   render() {
-    // console.log("state", ) here
-    //map through filtered dogs and pass props to VisibleDogs component
-    //show VisibleDogs under FilterForm
-    // const visibleDogs = 
 
     return (
-      <div className="App">
+      <div className="app">
         {/* pass props to filter form */ }
-        <FilterForm />
-
+        <FilterForm filterDogs={this.filterDogs} dogData={this.state.dogData} />
       </div>
     );
   }

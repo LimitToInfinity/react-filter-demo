@@ -1,18 +1,17 @@
 import React from 'react'
 
 //pass props to visible dogs component
-const VisibleDogs = () => {
+const VisibleDogs = (props) => {
     return (
         <div>
 
-            {/* put dog name in h1 tag */ }
-            <h1>Visible Dog Component</h1>
-            {/* put breed's purpose in p tag */ }
-
-            {/* put breed's origin in p tag */ }
+            <h1>{props.dog.name}</h1>
+            <p>{props.dog.bred_for}</p>
+            <p>{props.dog.origin}</p>
+            <p>{props.dog.breed_group}</p>
 
         </div>
     )
 }
 
-export default VisibleDogs
+export default VisibleDogs;
